@@ -29,25 +29,24 @@ Developed by: Panascì Francesco
 Nomenclature update: Replaced ι with 'dual' for enhanced physical clarity.
 -/
 
-import Mathlib.Data.Set.Basic
-import Mathlib.Tactic
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Nat.Prime
-import Mathlib.Analysis.Complex.Basic
-
-/-! 
-# DST-Vault Core: Full Version (v3.0) - Quantum Resonance Edition
-Final axiomatic framework for the Dual Sets Theory (DST).
-Nomenclature update: Replaced ι with 'dual' for enhanced physical clarity.
--/
-
-/-- ### 1. FUNDAMENTAL AXIOMS (DST₀ - DST₁) -/
+/-- ### 1. FUNDAMENTAL AXIOMS (DST₀ - DST₄) -/
 
 class DST (α : Type) where
   /-- The Dual Operator (Involutive reflection) -/
   dual : α → α
   involution : ∀ x, dual (dual x) = x
   is_dual : α → α → Prop := (λ x y => y = dual x)
+
+/-- 
+  ### Axiom 04: The Duality Field (The Conservation Law)
+  Introduces the Equilibrium Center (E). 
+  Matches visual representation: x + dual(x) = E
+-/
+structure DualityField (α : Type) [Add α] extends DST α where
+  /-- The Equilibrium Center (E) - The 'Neutral' core of the field --/
+  E : α
+  /-- Axiom 04: Field Equation (Conservation of Duality) --/
+  field_constrain : ∀ x : α, x + (dual x) = E
 
 variable {α β : Type} [DST α] [DST β]
 
@@ -61,6 +60,16 @@ def IsSensitive (x : α) : Prop := DST.dual x ≠ x
 
 instance [DecidableEq α] (x : α) : Decidable (IsNeutral x) := 
   decidable_of_iff (DST.dual x = x) Iff.rfl
+
+/-- 
+  ### Field Symmetry Theorem
+  In a Duality Field, the distance from the center is conserved but inverted.
+  Formally proves the mirror-like nature shown in Axiom 4 diagrams.
+-/
+theorem field_symmetry {α : Type} [AddCommGroup α] (df : DualityField α) (x : α) :
+  df.E - x = df.dual x := by
+  have h := df.field_constrain x
+  linarith
 
 /-! ### 2. BIO-LOGISTICS & PHARMA-SYNTHESIS -/
 

@@ -31,7 +31,7 @@ DST applies across multiple domains, from particle physics to number theory.
 $$\text{dual}(x, y) = (\text{dual}(x), \text{dual}(y))$$
 This allows for the creation of **Neutral Autodual Complexes**, essential for modeling stable interactions such as drug-target binding or coherent photon states.
 
-![Axiom 5](Axiom_5_Coupling.jpg)
+![Axiom 5](Axiom_5_System_Composition_Coupling.jpg)
 *The composition operator ensures that information conservation ($\iota$) is maintained even when independent Vaults are coupled into a Product Space.*
 
 ### Temporal Persistence & Entropy Decay (Axiom 06)

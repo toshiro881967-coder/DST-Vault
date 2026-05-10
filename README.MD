@@ -49,6 +49,6 @@ DST-Vault explores the intersection of number theory, informational entropy, and
 * **Primorial Resonance:** Research into the role of primorial frequencies (e.g., 210, 2310) in minimizing system entropy.
 
 ## Technical Specifications
-* **Lean Version:** version 4.29.1).
+* **Lean Version:** version 4.29.1
 * **Environment:** Fully compatible with Mathlib4.
 * **Build:** `lake build`
